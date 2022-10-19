@@ -11,7 +11,7 @@ const SelecByType = ({ setTypeSelected }) => {
         axios.get(URL)
             .then(res => setTypes(res.data.results))
             .catch(err => console.log(err))
-            console.log(types)
+            
     }, [])
    
     
@@ -27,7 +27,7 @@ const SelecByType = ({ setTypeSelected }) => {
             <option value="All Pokemons">All Pokemons</option>
             {
                 types?.map(type => (
-                    <option key={type.url} value={type.urk}>{type.name}</option>
+                    <option key={type.url} value={type.url}>{type.name}</option>
                 ))
             }
         </select>

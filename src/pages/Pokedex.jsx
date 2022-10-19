@@ -11,26 +11,22 @@ const Pokedex = () => {
   const [typeSelected, setTypeSelected] = useState('All Pokemons')
 
   useEffect(() => {
-    if (typeSelected !== 'All Pokemons'){
+    if (typeSelected !== 'All Pokemons') {
       // si se seleccionó un tipo
       axios.get(typeSelected)
-      
-      //.then(res => {
-        //const result = res.data.pokemon.map((e) => e.pokemon)
-        //setPokemons(result)
-        //catch(err => console.log(err))      
-        .then(res => console.log(res.data))
+        .then(res => {
+          const result = res.data.pokemon.map((e) => e.pokemon)
+          setPokemons(result)
+        })
         .catch(err => console.log(err))
-   
-  } else {
-    // si quiero todos los pokemons
-    const URL = 'https://pokeapi.co/api/v2/pokemon?limit=10&offset=0'
-    axios.get(URL)
-    .then(res => setPokemons(res.data.results))
-    .catch (err => console.log(err))
-  }
-    
-  },[typeSelected])
+    } else {
+      // si quiero todos los pokemons
+      const URL = 'https://pokeapi.co/api/v2/pokemon?limit=10&offset=0'
+      axios.get(URL)
+        .then(res => setPokemons(res.data.results))
+        .catch(err => console.log(err))
+    }
+  }, [typeSelected])
 
   const userName = useSelector(state => state.userName)
 
@@ -42,18 +38,18 @@ const Pokedex = () => {
       </header>
       <aside>
         <InputSearch />
-        <SelecByType setTypeSelected={setTypeSelected}/>
+        <SelecByType setTypeSelected={setTypeSelected} />
       </aside>
       <main>
         <div className='card--container'>
-            {
-              pokemons?.map(pokemon => (
-                <CardPoke
-                    key={pokemon.url}
-                    url={pokemon.url}
-                />
-              ))
-            }    
+          {
+            pokemons?.map(pokemon => (
+              <CardPoke
+                key={pokemon.url}
+                url={pokemon.url}
+              />
+            ))
+          }
         </div>
       </main>
     </div>

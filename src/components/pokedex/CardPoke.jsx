@@ -21,12 +21,14 @@ const CardPoke = ({ url }) => {
     }
 
     return (
-        <article className='card--poke' onClick={handleClick}>
-            <header className='card--poke__header'>
-                <img src={pokemon?.sprites.other.home.front_default} alt="pokemon" />
+        <article className={`card--poke border-${pokemon?.types[0].type.name}`} onClick={handleClick}>
+            <header className={`card--poke__header bg-${pokemon?.types[0].type.name}`}>
+                <img className='card--poke__sprite'
+                    src={pokemon?.sprites.other.home.front_default}
+                    alt="pokemon" />
             </header>
             <section className='card--poke__body'>
-                <h3 className='card--poke__name'>{pokemon?.name}</h3>
+                <h3 className={`card--poke__name letter-${pokemon?.types[0].type.name}`}>{pokemon?.name}</h3>
                 <ul className='card--poke__types-container'>
                     {
                         pokemon?.types.map(type => (
@@ -34,19 +36,19 @@ const CardPoke = ({ url }) => {
                         ))
                     }
                 </ul>
-                <p className='card--poke__type-label'>Type</p>             
+                <p className='card--poke__type-label'>Type</p>
 
             </section>
             <ul className='card--poke__stats-container'>
-                    {
-                        pokemon?.stats.map(stat => (
-                            <li key={stat.stat.name} className='card--poke__stat'>
-                                <span className='card--poke__stat-label'>{stat.stat.name}</span>
-                                <span className='card--poke__stat-number'>{stat.base_stat}</span>
-                            </li>
-                        ))
-                    }
-                </ul>
+                {
+                    pokemon?.stats.map(stat => (
+                        <li key={stat.stat.name} className='card--poke__stat'>
+                            <span className='card--poke__stat-label'>{stat.stat.name}</span>
+                            <span className={`card--poke__stat-number letter-${pokemon?.types[0].type.name}`}>{stat.base_stat}</span>
+                        </li>
+                    ))
+                }
+            </ul>
         </article>
     )
 }
