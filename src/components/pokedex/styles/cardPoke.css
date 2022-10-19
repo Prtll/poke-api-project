@@ -6,6 +6,8 @@
   border-width: 10px;
   border-style: solid;
   border-color: blue;
+  background-color: #ffffff;
+  margin-bottom: 1rem;
 }
 .card--poke__header{
   height: 200px;

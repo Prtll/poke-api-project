@@ -15,12 +15,12 @@ const FormHome = () => {
   }
 
   return (
-    <form onSubmit={submit} className='pokedex__form' >
+    <form onSubmit={submit} className='home__form' >
         <input 
-        className='pokedex__input' 
+        className='home__input' 
         type="text" 
         placeholder='Enter your name here'/>
-        <button className='pokedex__btn'>Catch them all!</button>
+        <button className='home__btn'>Catch them all!</button>
       </form>
   )
 }

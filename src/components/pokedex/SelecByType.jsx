@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-const SelecByType = ({ setTypeSelected }) => {
+const SelecByType = ({ setTypeSelected, setPage }) => {
 
     const [types, setTypes] = useState()
 
@@ -18,16 +18,16 @@ const SelecByType = ({ setTypeSelected }) => {
 
     const handleChange = (e) => {
         setTypeSelected(e.target.value)
-
+        setPage(1)
     }
 
 
     return (
-        <select onChange={handleChange}>
-            <option value="All Pokemons">All Pokemons</option>
+        <select className='pokedex__select' onChange={handleChange}>
+            <option className='pokedex__option' value="All Pokemons">All Pokemons</option>
             {
                 types?.map(type => (
-                    <option key={type.url} value={type.url}>{type.name}</option>
+                    <option className='pokedex__option' key={type.url} value={type.url}>{type.name}</option>
                 ))
             }
         </select>

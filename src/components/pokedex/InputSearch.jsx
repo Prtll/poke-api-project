@@ -11,9 +11,9 @@ const InputSearch = () => {
     }
 
   return (
-    <form onSubmit={submit}>
-        <input id='search' type="text" placeholder='Serach a pokemon' />
-        <button>Search</button>
+    <form className='pokedex__form' onSubmit={submit}>
+        <input className='pokedex__input' id='search' type="text" placeholder='Serach a pokemon' />
+        <button className='pokedex__btn' >Search</button>
     </form>
   )
 }
