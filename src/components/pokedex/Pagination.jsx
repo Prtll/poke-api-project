@@ -46,7 +46,7 @@ const Pagination = ({ page, pagesLength, setPage }) => {
             <div className='pagination__next--block'>...</div>
             {
                 page < pagesLength && 
-                <div div onClick={handlenext} className='pagination__next pagination__active'>&#62;</div>
+                <div onClick={handlenext} className='pagination__next pagination__active'>&#62;</div>
             }
         </div >
     )
